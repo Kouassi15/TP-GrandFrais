@@ -1,0 +1,40 @@
+<div class="card">
+   
+    <p-menubar [model]="item">
+        <ng-template pTemplate="start">
+            <div class="card flex justify-content-center">
+                <p-button label="New" routerLink="/create-personne"></p-button>
+            </div>
+        </ng-template>
+        <ng-template pTemplate="end" >
+            <input type="text" type="text" 
+            (input)="myTab.filterGlobal($any($event.target).value,'contains')" 
+            autocomplete="on" pInputText placeholder="Recherche" style="width:auto" class="w-full" />
+        </ng-template>
+    </p-menubar>
+
+    <p-table #myTab [value]="personnes" [tableStyle]="{ 'min-width': '50rem' }">
+        <ng-template pTemplate="header">
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>Prenom</th>
+                <th>Age</th>
+                <th>Action</th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-personne>
+            <tr>
+                <td>{{ personne.id }}</td>
+                <td>{{ personne.nom }}</td>
+                <td>{{ personne.prenom }}</td>
+                <td>{{ personne.age }}</td>
+                <td>
+                    <button routerLink="/modifier-personne/{{personne.id}}" pButton pRipple label="Modifier" class="p-button-success"></button>
+                    &nbsp;
+                    <button (click)="deletePersonne(personne.id)"  pButton pRipple label="Supprimer" class="p-button-danger"></button>
+                </td>
+            </tr>
+        </ng-template>
+    </p-table>
+</div>

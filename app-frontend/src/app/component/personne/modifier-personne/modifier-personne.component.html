@@ -1,0 +1,32 @@
+<div class="flex justify-content-center">
+    <form [formGroup]="form" (ngSubmit)="updatePersonne()">
+        <div class="container">
+            <label htmlFor="nom">Nom</label>
+            <div class="card flex justify-content-center form">
+                <input type="text" name="nom" pInputText formControlName="nom" />
+            </div>
+        </div><br>
+        
+        <div class="container">
+            <label htmlFor="prenom">Prenom</label>
+            <div class="card flex justify-content-center form">
+                <input type="text" name="prenom" pInputText formControlName="prenom"/>
+            </div>
+        </div><br>
+        
+        <div class="container">
+            <label htmlFor="age">Age</label>
+            <div class="card flex justify-content-center form">
+                <input type="number" name="age" pInputText formControlName="age"/>
+            </div>
+        </div><br>
+        
+        <div class="container">
+            <button  pButton pRipple label="Modifier" type="submit" class="p-button-success form"></button>
+        </div>
+    </form>
+</div>
+
+
+
+
